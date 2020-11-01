@@ -14,9 +14,19 @@ import "./Cell.css";
  *
  **/
 
-function Cell({ flipCellsAroundMe, isLit }) {
-  const classes = `Cell ${isLit ? "Cell-lit" : ""}`;
-  return <td className={classes} onClick={flipCellsAroundMe} />;
+function Cell({ flipCellsAroundMe, light }) {
+
+  let lightClass 
+  console.log(light)
+
+  if (light === 'on') {
+    lightClass = "on";
+  } else {
+    lightClass = 'off';
+  }
+  
+  // const classes = `Cell ${light = 'on' ? "Cell-lit" : ""}`;
+  return <td className={`Cell ${lightClass}`} />;
 }
 
 export default Cell;

@@ -50,9 +50,9 @@ function Board() {
         ncols[j] = Random();
 
         if (ncols[j] > 0.5) {
-          rowVals.push(true);
+          rowVals.push('on');
         } else {
-          rowVals.push(false);
+          rowVals.push('off');
         }
       }
 
@@ -89,8 +89,7 @@ function Board() {
 
   // // TODO
 
-  // TODO create table board
-
+  //create table board
   let tableBoard = [];
 
   for (let x = 0; x < nrows.length; x++) {
@@ -98,7 +97,9 @@ function Board() {
     for (let y = 0; y < ncols.length; y++) {
       let cellCoords = `${x}-${y}`;
       tableRow.push(
-        <Cell keys={cellCoords}/>
+        <Cell key={cellCoords}
+          light={board[x][y]}
+        />
       );
     }
     tableBoard.push(
@@ -108,13 +109,13 @@ function Board() {
     );
   }
 
-  console.log(tableBoard)
-
   return (
-    <div>
+    <>
       <h1>Board</h1>
-      <table>{tableBoard}</table>
-    </div>
+      <table>
+        <tbody>{tableBoard}</tbody>
+      </table>
+    </>
   );
 }
 
