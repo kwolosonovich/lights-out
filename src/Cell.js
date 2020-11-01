@@ -14,19 +14,17 @@ import "./Cell.css";
  *
  **/
 
-function Cell({ flipCellsAroundMe, light }) {
+function Cell({ light, flipCellsAroundMe }) {
 
   let lightClass 
-  console.log(light)
+    
+    if (light === 'on') {
+      lightClass = "Cell on";
+    } else {
+      lightClass = 'Cell off';
+    }
 
-  if (light === 'on') {
-    lightClass = "on";
-  } else {
-    lightClass = 'off';
-  }
-  
-  // const classes = `Cell ${light = 'on' ? "Cell-lit" : ""}`;
-  return <td className={`Cell ${lightClass}`} />;
+  return <td className={lightClass} onClick={flipCellsAroundMe} role="button"/>;
 }
 
 export default Cell;

@@ -49,10 +49,10 @@ function Board() {
       for (let j = 0; j < ncols.length; j++) {
         ncols[j] = Random();
 
-        if (ncols[j] > 0.5) {
-          rowVals.push('on');
+        if (ncols[j] > chanceLightStartsOn) {
+          rowVals.push("on");
         } else {
-          rowVals.push('off');
+          rowVals.push("off");
         }
       }
 
@@ -65,23 +65,29 @@ function Board() {
   //   // TODO: check the board in state to determine whether the player has won.
   // }
 
-  function flipCellsAround(coord) {
-    setBoard(oldBoard => {
-      const [y, x] = coord.split("-").map(Number);
+  function flipCellsAround(cellCoords) {
+    setBoard((oldBoard) => {
+      const [y, x] = cellCoords.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
         // if this coord is actually on board, flip it
-
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
           boardCopy[y][x] = !boardCopy[y][x];
         }
       };
 
-      // TODO: Make a (deep) copy of the oldBoard
+      // (deep) copy of the oldBoard
+      const boardCopy = oldBoard.map((row) => [...row]);
 
-      // TODO: in the copy, flip this cell and the cells around it
+      // flip this cell and the cells around it
+      flipCell(y, x, boardCopy);
+      flipCell(y, x - 1, boardCopy);
+      flipCell(y, x + 1, boardCopy);
+      flipCell(y - 1, x, boardCopy);
+      flipCell(y + 1, x, boardCopy);
 
-      // TODO: return the copy
+      // return the copy
+      return boardCopy;
     });
   }
 
@@ -92,18 +98,20 @@ function Board() {
   //create table board
   let tableBoard = [];
 
-  for (let x = 0; x < nrows.length; x++) {
+  for (let y = 0; y < nrows.length; y++) {
     let tableRow = [];
-    for (let y = 0; y < ncols.length; y++) {
+    for (let x = 0; x < ncols.length; x++) {
       let cellCoords = `${x}-${y}`;
       tableRow.push(
-        <Cell key={cellCoords}
+        <Cell
+          key={cellCoords}
           light={board[x][y]}
+          flipCellsAroundMe={() => flipCellsAround(cellCoords)}
         />
       );
     }
     tableBoard.push(
-      <tr key={x} className="tableRow">
+      <tr key={y} className="tableRow">
         {tableRow}
       </tr>
     );
