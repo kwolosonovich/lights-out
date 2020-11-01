@@ -101,7 +101,11 @@ function Board() {
         <Cell keys={cellCoords}/>
       );
     }
-    tableBoard.push(tableRow);
+    tableBoard.push(
+      <tr key={x} className="tableRow">
+        {tableRow}
+      </tr>
+    );
   }
 
   console.log(tableBoard)
