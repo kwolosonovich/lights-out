@@ -1,27 +1,9 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import "./Board.css";
-import { xor } from "lodash";
 import Random from './Random'
 
-/** Game board of Lights out.
 
- * State:
- *
- * - board: array-of-arrays of true/false
- *
- *    For this board:
- *       .  .  .
- *       O  O  .     (where . is off, and O is on)
- *       .  .  .
- *
- *    This would be: [[f, f, f], [t, t, f], [f, f, f]]
- *
- *  This should render an HTML table of individual <Cell /> components.
- *
- *  This doesn't handle any clicks --- clicks are on individual cells
- *
- **/
 // game board properties:
 
 //  number of rows of board
@@ -32,24 +14,20 @@ import Random from './Random'
   const chanceLightStartsOn = 0.5
 
 
-
+// create a board nrows high/ncols wide, each cell randomly lit or unlit
 function Board() {
-  // const [board, setBoard] = useState(createBoard());
-
-  /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
-
   const [board, setBoard] = useState(createBoard(nrows, ncols));
 
-  function createBoard(nrows, ncols) {
+  function createBoard() {
     let initialBoard = [];
 
     // array-of-arrays of true/false values
-    for (let i = 0; i < nrows.length; i++) {
+    for (let y = 0; y < nrows.length; y++) {
       let rowVals = [];
-      for (let j = 0; j < ncols.length; j++) {
-        ncols[j] = Random();
+      for (let x = 0; x < ncols.length; x++) {
+        ncols[x] = Random();
 
-        if (ncols[j] > chanceLightStartsOn) {
+        if (ncols[x] > chanceLightStartsOn) {
           rowVals.push("on");
         } else {
           rowVals.push("off");
@@ -61,12 +39,14 @@ function Board() {
     console.log(initialBoard);
     return initialBoard;
   }
-  // function hasWon() {
-  //   // TODO: check the board in state to determine whether the player has won.
-  // }
+
+  // check for all cells off
+  function hasWon() {
+    return board.every(row => row.every(cell => !cell));
+  }
 
   function flipCellsAround(cellCoords) {
-    setBoard((oldBoard) => {
+    setBoard(oldBoard => {
       const [y, x] = cellCoords.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
@@ -91,9 +71,10 @@ function Board() {
     });
   }
 
-  // // if the game is won, just show a winning msg & render nothing else
-
-  // // TODO
+  // if the game is won, show winning msg & render nothing else
+  if (hasWon()) {
+    return <div>You Win!</div>;
+  }
 
   //create table board
   let tableBoard = [];
