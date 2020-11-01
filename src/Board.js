@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import "./Board.css";
-import Random from './Random'
-
+import Random from "./Random";
+import Message from "./Message";
 
 // game board properties:
 
 //  number of rows of board
- const nrows = new Array(3);
+const nrows = new Array(3);
 //  number of cols of board
- const ncols = new Array(3);
+const ncols = new Array(3);
 // chance any cell is lit at start of game
-  const chanceLightStartsOn = 0.5
-
+const chanceLightStartsOn = 0.5;
 
 // create a board nrows high/ncols wide, each cell randomly lit or unlit
 function Board() {
@@ -42,11 +41,11 @@ function Board() {
 
   // check for all cells off
   function hasWon() {
-    return board.every(row => row.every(cell => !cell));
+    return board.every((row) => row.every((cell) => !cell));
   }
 
   function flipCellsAround(cellCoords) {
-    setBoard(oldBoard => {
+    setBoard((oldBoard) => {
       const [y, x] = cellCoords.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
@@ -71,9 +70,9 @@ function Board() {
     });
   }
 
-  // if the game is won, show winning msg & render nothing else
+  // if the game is won render Message
   if (hasWon()) {
-    return <div>You Win!</div>;
+    Message('You Win!');
   }
 
   //create table board
@@ -100,7 +99,7 @@ function Board() {
 
   return (
     <>
-      <h1>Board</h1>
+      <h1>Lights Out</h1>
       <table>
         <tbody>{tableBoard}</tbody>
       </table>

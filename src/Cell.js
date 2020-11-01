@@ -8,8 +8,6 @@ import "./Cell.css";
  * - flipCellsAroundMe: a function rec'd from the board which flips this
  *      cell and the cells around of it
  *
- * - isLit: boolean, is this cell lit?
- *
  * This handles clicks --- by calling flipCellsAroundMe
  *
  **/
