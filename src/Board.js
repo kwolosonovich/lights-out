@@ -4,8 +4,7 @@ import "./Board.css";
 import Random from "./Random";
 import Message from "./Message";
 
-// game board properties:
-
+//  game board properties:
 //  number of rows of board
 const nrows = new Array(6);
 //  number of cols of board
@@ -72,7 +71,7 @@ function Board() {
 
   // if the game is won render Message
   if (hasWon()) {
-    Message('You Win!');
+    Message("You Win!");
   }
 
   //create table board

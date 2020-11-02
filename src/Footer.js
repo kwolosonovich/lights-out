@@ -1,8 +1,9 @@
 import React from 'react'
+import './Footer.css'
 
 const footer = () => {
     return (
-        <>
+        <div className="footer">
             <div>
                 <a href="https://www.freepik.com/vectors/background">
                     Background vector created by <i>freepik</i> {"; "}
@@ -31,7 +32,7 @@ const footer = () => {
                     <i>www.flaticon.com</i>
                 </a>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -8,17 +8,15 @@ import Footer from './Footer'
 
 function App() {
   return (
-    <div className="page">
-      <div className="flex-container">
-        <div className="App">
-          <Board />
-        </div>
-        <div className="col2">
-          <Home />
-        </div>
-        <div className="footer">
-          <Footer />
-        </div>
+    <div className="flex-container">
+      <div className="App">
+        <Board />
+      </div>
+      <div className="col2">
+        <Home />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
