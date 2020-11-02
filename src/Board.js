@@ -6,9 +6,9 @@ import Message from "./Message";
 
 //  game board properties:
 //  number of rows of board
-const nrows = new Array(6);
+const nrows = new Array(5);
 //  number of cols of board
-const ncols = new Array(6);
+const ncols = new Array(5);
 // chance any cell is lit at start of game
 const chanceLightStartsOn = 0.5;
 
