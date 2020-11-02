@@ -1,3 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+  background-image: url(./4.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flex-container {
+  margin: 50px 30px 0px 30px;
+  display: flex;
+  height: 700px;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
 .App {
+  display: inline-flex;
   text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  background-image: url(./1.jpg);
+  color:rgba(255, 255, 255, 0.726);
+  font-size: 60px;
+  width: 50%;
+  min-width: 300px;  
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.212);
+}
+
+.col2 {
+   display: inline-flex;
+   text-align: center;
+  width: 50%;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  text-align: right;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: rgba(15, 15, 15, 0.726);
+}
+
+a {
+  color: rgba(15, 15, 15, 0.726);
+  font-style: normal;
+  text-decoration: none;
+  font-variant: normal;
+}
+
+i:hover {
+  color:#433879;
 }

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.home {
+    text-align: block;
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.title {
+    margin-top: 100px;
+    width: 100%;
+    color: #433879;  
+}
+
+.subtext {
+    margin: 100px 0;
+    color: #8a8a8a;
+}
+
+.login {
+    margin: 180px 0px 20px 0px;
+}
+
+.subtext {
+    width: 100%;
+    display: block;
+}
+

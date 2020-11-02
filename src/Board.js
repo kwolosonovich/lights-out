@@ -7,9 +7,9 @@ import Message from "./Message";
 // game board properties:
 
 //  number of rows of board
-const nrows = new Array(3);
+const nrows = new Array(6);
 //  number of cols of board
-const ncols = new Array(3);
+const ncols = new Array(6);
 // chance any cell is lit at start of game
 const chanceLightStartsOn = 0.5;
 
@@ -98,12 +98,12 @@ function Board() {
   }
 
   return (
-    <>
+    <div className="game">
       <h1>Lights Out</h1>
       <table>
         <tbody>{tableBoard}</tbody>
       </table>
-    </>
+    </div>
   );
 }
 
