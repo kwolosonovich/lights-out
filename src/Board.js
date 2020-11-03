@@ -12,6 +12,11 @@ const ncols = new Array(5);
 // chance any cell is lit at start of game
 const chanceLightStartsOn = 0.5;
 
+
+
+// winner message ***************************** need to fix
+const msg = ""
+
 // create a board nrows high/ncols wide, each cell randomly lit or unlit
 function Board() {
   const [board, setBoard] = useState(createBoard(nrows, ncols));
@@ -34,11 +39,10 @@ function Board() {
 
       initialBoard.push(rowVals);
     }
-    console.log(initialBoard);
     return initialBoard;
   }
 
-  // check for all cells off
+  // check for all cells off   **************** need to change to check for 'off'
   function hasWon() {
     return board.every((row) => row.every((cell) => !cell));
   }
@@ -74,9 +78,12 @@ function Board() {
     });
   }
 
+  // ************************ how to return message 
+
   // if the game is won render Message
   if (hasWon()) {
-    Message("You Win!");
+    msg = Message("You Win!")
+    return msg
   }
 
   //create table board
@@ -107,6 +114,7 @@ function Board() {
       <table>
         <tbody>{tableBoard}</tbody>
       </table>
+      <div>{msg}</div>
     </div>
   );
 }
