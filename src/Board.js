@@ -43,15 +43,20 @@ function Board() {
     return board.every((row) => row.every((cell) => !cell));
   }
 
+
+  // **** Need to fix this function to account for on/off variables to flip each card****
+
   function flipCellsAround(cellCoords) {
     setBoard((oldBoard) => {
       const [y, x] = cellCoords.split("-").map(Number);
 
+      console.log(cellCoords);
+
       const flipCell = (y, x, boardCopy) => {
         // if this coord is actually on board, flip it
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
-          boardCopy[y][x] = !boardCopy[y][x];
-        }
+            boardCopy[y][x] = !boardCopy[y][x];
+         }
       };
 
       // (deep) copy of the oldBoard

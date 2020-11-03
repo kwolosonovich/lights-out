@@ -22,7 +22,7 @@ function Cell({ light, flipCellsAroundMe }) {
       lightClass = 'Cell off';
     }
 
-  return <td className={lightClass} onClick={flipCellsAroundMe} role="button"/>;
+  return <td className={lightClass} onClick={flipCellsAroundMe} role="button" alt="select"/>;
 }
 
 export default Cell;
