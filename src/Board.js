@@ -6,15 +6,13 @@ import Message from "./Message";
 
 //  game board properties:
 //  number of rows of board
-const nrows = new Array(3);
+const nrows = new Array(5);
 //  number of cols of board
-const ncols = new Array(3);
+const ncols = new Array(5);
 // chance any cell is lit at start of game
 const chanceLightStartsOn = 0.5;
 
 let msg = "";
-
-// winner message ***************************** need to fix
 
 // create a board nrows high/ncols wide, each cell randomly lit or unlit
 function Board() {
@@ -49,7 +47,7 @@ function Board() {
   function flipCellsAround(cellCoords) {
     setBoard((oldBoard) => {
       const [y, x] = cellCoords.split("-").map(Number);
-      
+
       const flipCell = (y, x, boardCopy) => {
         // if this coord is actually on board, flip it
         if (
@@ -67,14 +65,14 @@ function Board() {
 
       // flip this cell and the cells around it
       flipCell(y, x, boardCopy);
-      // flipCell(y, x - 1, boardCopy);
-      // flipCell(y, x + 1, boardCopy);
-      // flipCell(y - 1, x, boardCopy);
-      // flipCell(y + 1, x, boardCopy);
-      // flipCell(y + 1, x +1, boardCopy);
-      // flipCell(y + 1, x -1, boardCopy);
-      // flipCell(y - 1, x + 1, boardCopy);
-      // flipCell(y - 1, x - 1, boardCopy);
+      flipCell(y, x - 1, boardCopy);
+      flipCell(y, x + 1, boardCopy);
+      flipCell(y - 1, x, boardCopy);
+      flipCell(y + 1, x, boardCopy);
+      flipCell(y + 1, x +1, boardCopy);
+      flipCell(y + 1, x -1, boardCopy);
+      flipCell(y - 1, x + 1, boardCopy);
+      flipCell(y - 1, x - 1, boardCopy);
 
       // return the copy
       return boardCopy;
