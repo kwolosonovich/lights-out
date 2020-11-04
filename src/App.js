@@ -1,8 +1,8 @@
 import React from "react";
 import Board from "./Board";
 import "./App.css";
-import Home from './Home'
-import Footer from './Footer'
+import Home from "./Home";
+import Footer from "./Footer";
 
 /** Simple app that just shows the LightsOut game. */
 

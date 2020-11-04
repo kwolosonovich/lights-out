@@ -12,7 +12,7 @@ const ncols = new Array(3);
 // chance any cell is lit at start of game
 const chanceLightStartsOn = 0.5;
 
-let msg = ""
+let msg = "";
 
 // winner message ***************************** need to fix
 
@@ -46,16 +46,18 @@ function Board() {
     return board.every((row) => row.every((cell) => !cell));
   }
 
-
   function flipCellsAround(cellCoords) {
     setBoard((oldBoard) => {
       const [y, x] = cellCoords.split("-").map(Number);
-
-      console.log(cellCoords);
-
+      
       const flipCell = (y, x, boardCopy) => {
         // if this coord is actually on board, flip it
-        if (x >= 0 && x <= ncols.length - 1 && y >= 0 && y <= nrows.length - 1) {
+        if (
+          x >= 0 &&
+          x <= ncols.length - 1 &&
+          y >= 0 &&
+          y <= nrows.length - 1
+        ) {
           boardCopy[y][x] = !boardCopy[y][x];
         }
       };
@@ -68,7 +70,7 @@ function Board() {
       // flipCell(y, x - 1, boardCopy);
       // flipCell(y, x + 1, boardCopy);
       // flipCell(y - 1, x, boardCopy);
-      // flipCell(y + 1, x, boardCopy); 
+      // flipCell(y + 1, x, boardCopy);
       // flipCell(y + 1, x +1, boardCopy);
       // flipCell(y + 1, x -1, boardCopy);
       // flipCell(y - 1, x + 1, boardCopy);
