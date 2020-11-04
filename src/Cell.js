@@ -16,7 +16,7 @@ function Cell({ light, flipCellsAroundMe }) {
 
   let lightClass 
     
-    if (light === 'on') {
+    if (light) {
       lightClass = "Cell on";
     } else {
       lightClass = 'Cell off';
